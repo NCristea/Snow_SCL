@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: hydroplotting
+Version: 0.1
+Home-page: 
+Author: 
+Author-email: 
+Maintainer: 
+Maintainer-email: 
+License: BSD
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Snow_SCL
+Evaluate hydrologic changes in the Tolt River watershed
