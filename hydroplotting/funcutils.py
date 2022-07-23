@@ -1,6 +1,7 @@
 import pandas as pd
 from datetime import datetime
 
+
 def calc_water_year(date):
     date = pd.to_datetime(date)
     if 10 <= date.month <= 12:
@@ -9,11 +10,14 @@ def calc_water_year(date):
     else:
         return date.year
 
+
 def calc_water_year_apply(df):
     df['water_year'] = df.datetime.apply(lambda row: calc_water_year(row))
 
+
 def calc_water_year_apply_SPU(df):
     df['water_year'] = df.DateTime.apply(lambda row: calc_water_year(row))
+
 
 def snotel_data(path_snotel):
     snotel_obs = pd.read_csv(path_snotel, sep='\s+', header=None)
@@ -25,10 +29,11 @@ def snotel_data(path_snotel):
     calc_water_year_apply(snotel_obs)
     return snotel_obs
 
+
 def spu_snotel_data(path_SPU):
     parse_dates = ['DateTime']
-    snotel_obs = pd.read_csv(path_SPU,  parse_dates=parse_dates)
+    snotel_obs = pd.read_csv(path_SPU,  sep='\s+', parse_dates=parse_dates)
     snotel_obs = snotel_obs.set_index(snotel_obs['DateTime'])
     calc_water_year_apply_SPU(snotel_obs)
     return snotel_obs
-#%%
+# %%
