@@ -102,20 +102,21 @@ def bcbq_snotel_data_xr(bcbq_data_frame):
     snotel_obs['SWE_m'].attrs['units'] = "m"
     return snotel_obs
 
+
 def spu_snotel_data_xr_T(SPU_data_frame_T):
     """get temp data in xclim format
     add units for processing with xclim"""
-    #snotel_obs_SPU = SPU_data_frame.to_xarray()
-    SPU_data_frame_T.index.set_names('time', inplace=True)
+    # snotel_obs_SPU = SPU_data_frame.to_xarray()
+    #SPU_data_frame_T.index.set_names('time', inplace=True)
 
     SPU_data_frame_T['Tmean_C'] = (SPU_data_frame_T['Avg'] - 32) * (5 / 9)
     SPU_data_frame_T['Tmin_C'] = (SPU_data_frame_T['Min'] - 32) * (5 / 9)
     SPU_data_frame_T['Tmax_C'] = (SPU_data_frame_T['Max'] - 32) * (5 / 9)
 
-    ds_snotel_obs_SPU_T = SPU_data_frame.to_xarray()
+    ds_snotel_obs_SPU_T = SPU_data_frame_T.to_xarray()
     ds_snotel_obs_SPU_T['Tmean_C'].attrs['units'] = "C"
     ds_snotel_obs_SPU_T['Tmin_C'].attrs['units'] = "C"
     ds_snotel_obs_SPU_T['Tmax_C'].attrs['units'] = "C"
 
     return ds_snotel_obs_SPU_T
-# %%
+
