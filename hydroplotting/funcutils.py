@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from datetime import datetime
 
 
@@ -120,3 +121,7 @@ def spu_snotel_data_xr_T(SPU_data_frame_T):
 
     return ds_snotel_obs_SPU_T
 
+def nse(sim, obs):
+    num = np.sum((obs - sim) ** 2)
+    den = np.sum((obs - np.mean(obs)) ** 2)
+    return 1 - (num /den)
