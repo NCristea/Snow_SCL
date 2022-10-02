@@ -108,7 +108,7 @@ def spu_snotel_data_xr_T(SPU_data_frame_T):
     """get temp data in xclim format
     add units for processing with xclim"""
     # snotel_obs_SPU = SPU_data_frame.to_xarray()
-    #SPU_data_frame_T.index.set_names('time', inplace=True)
+    SPU_data_frame_T.index.set_names('time', inplace=True)
 
     SPU_data_frame_T['Tmean_C'] = (SPU_data_frame_T['Avg'] - 32) * (5 / 9)
     SPU_data_frame_T['Tmin_C'] = (SPU_data_frame_T['Min'] - 32) * (5 / 9)
@@ -125,3 +125,4 @@ def nse(sim, obs):
     num = np.sum((obs - sim) ** 2)
     den = np.sum((obs - np.mean(obs)) ** 2)
     return 1 - (num /den)
+#%%
