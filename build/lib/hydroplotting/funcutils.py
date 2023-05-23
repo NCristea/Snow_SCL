@@ -31,4 +31,7 @@ def spu_snotel_data(path_snotel_spu):
     #snotel_obs['datetime'] = snotel_obs.index
     #calc_water_year_apply(snotel_obs)
     return snotel_obs
+
+
+
 #%%

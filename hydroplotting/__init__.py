@@ -5,4 +5,7 @@ from __future__ import (division,
                         print_function,
                         unicode_literals)
 
-__all__ = ['funcutils', 'plotting']
+__all__ = ['funcutils', 'plotting', 'metrics']
+
+
+#%%
