@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import hydroplotting.metrics
-import hydroplotting.funcutils
-import hydroplotting.plotting
+from hydroplotting import *
 
 #from __future__ import (division,
 #                        absolute_import,

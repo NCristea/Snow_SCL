@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
-
 def calc_water_year(date):
     date = pd.to_datetime(date)
     if 10 <= date.month <= 12:
