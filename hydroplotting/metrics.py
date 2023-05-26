@@ -9,7 +9,18 @@ def nse(sim, obs):
     num = np.sum((obs - sim) ** 2)
     den = np.sum((obs - np.mean(obs)) ** 2)
     return 1 - (num /den)
-
+def lse(simulation_s, evaluation):
+    sim_mean = np.mean(simulation_s, axis=0, dtype=np.float64)
+    obs_mean = np.mean(evaluation, dtype=np.float64)
+    r = np.sum((simulation_s - sim_mean) * (evaluation - obs_mean), axis=0, dtype=np.float64) / \
+        np.sqrt(np.sum((simulation_s - sim_mean) ** 2, axis=0, dtype=np.float64) *
+                np.sum((evaluation - obs_mean) ** 2, dtype=np.float64))
+    alpha = np.std(simulation_s, axis=0) / np.std(evaluation, dtype=np.float64)
+    beta = np.sum(simulation_s, axis=0, dtype=np.float64) / np.sum(evaluation, dtype=np.float64)
+    k1 = alpha * r
+    term1 = ((k1-1) ** 2)
+    term2 = ((beta-1) ** 2)
+    return 1 - np.sqrt(term1 + term2)
 
 def kge(simulation_s, evaluation):
     sim_mean = np.mean(simulation_s, axis=0, dtype=np.float64)
