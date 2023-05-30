@@ -46,6 +46,7 @@ def get_model_dataframe(path_model_data):
     snotel_model = pd.read_csv(path_model_data)
     snotel_model.set_index(pd.DatetimeIndex(snotel_model.iloc[:, 0]), inplace = True)
     snotel_model.index.name = 'datetime'
+    snotel_model['SWE_m'] = snotel_model['swq'] * 0.0254
     # TO DO add water year
     return snotel_model
 
