@@ -10,6 +10,7 @@ def nse(sim, obs):
     den = np.sum((obs - np.mean(obs)) ** 2)
     return 1 - (num /den)
 
+#https://www.sciencedirect.com/science/article/pii/S0022169420309483 - LSE but later found not good
 def lse(simulation_s, evaluation):
     sim_mean = np.mean(simulation_s, axis=0, dtype=np.float64)
     obs_mean = np.mean(evaluation, dtype=np.float64)
