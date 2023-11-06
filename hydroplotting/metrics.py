@@ -56,8 +56,24 @@ def sdd_diff(swe1, swe2):
         return np.datetime64('NaT')
 
 
-def peak_swe(swe):
+def peak_swe_ds(swe):
     return swe.max().values[()]
+
+def date_of_peak(df_snotel):
+    date_of_peak = df_snotel.index.values[df_snotel_Skookum.SWE_m.argmax()]
+    return date_of_peak
+
+def get_peak_swe(df_snotel):
+    df_snotel_wy = df_snotel.groupby(['water_year_str'])
+    peak_SWE_wy = dict()
+    wy_groups = df_snotel_wy.groups
+    wy_keys = wy_groups.keys()
+    for i in wy_keys:
+        wy = df_snotel_wy.get_group(i)
+        peak_swe = wy.SWE_m.max()
+        peak_SWE_wy[i] = peak_swe
+        #print(i)
+    return peak_SWE_wy
 
 
 def ps_diff(swe1, swe2):
